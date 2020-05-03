@@ -1,9 +1,14 @@
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { history } from '../../redux'
+import { getRepos } from '../../redux/reducers/repositories'
+
 
 const Search = () => {
+  const dispatch = useDispatch()
   const [repository, setRepository] = useState('')
   const navigateToTheRepo = () => {
+    dispatch(getRepos(repository))
     history.push(`/${repository}`)
   }
   return (

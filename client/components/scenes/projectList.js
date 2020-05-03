@@ -7,9 +7,13 @@ const ProjectList = () => {
   const { username } = useParams()
   const dispatch = useDispatch()
   const list = useSelector((state) => state.repositories.list)
+  const repository = useSelector((state) => state.repositories.repository)
+
   useEffect(() => {
-    dispatch(getRepos(username))
-  }, [username])
+    if(repository !== username) {
+      dispatch(getRepos(username))
+    }
+  }, [username, repository])
 
   return (
     <div>
