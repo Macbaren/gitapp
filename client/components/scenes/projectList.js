@@ -17,11 +17,20 @@ const ProjectList = () => {
 
   return (
     <div>
-      <div className="flex items-center justify-start h-screen flex-col">
-        <div className="w-full h-10 bg-green-200">{username}</div>
-        <div className="font-bold w-full px-5 border shadow-lg p-10 flex flex-col">
+      <div>
+        <div
+          className="bg-green-100 border-t border-b border-green-600 text-blue-700 px-4 py-3"
+          role="alert"
+        >
+          <p className="font-bold">GitHub pepositories of {username}</p>
+          <p className="text-sm">For open readme.md click on the link below</p>
+        </div>
+        <div className="font-bold w-full px-5 p-10 flex flex-col">
           {list.map((it) => (
-            <div className="p-1 my-1" key={it}>
+            <div
+              className="bg-yellow-100 hover:bg-yellow-200 rounded-lg border shadow-lg p-2 pl-4 my-1"
+              key={it}
+            >
               {' '}
               <Link to={`/${username}/${it}`}>{it}</Link>{' '}
             </div>

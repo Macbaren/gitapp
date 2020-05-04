@@ -13,11 +13,17 @@ const Project = () => {
   }, [username])
   return (
     <div>
-      <div className="flex items-center justify-start h-screen flex-col">
-        <div className="w-full h-10 bg-green-200">
-          This is {username} {repository} repository README
+      <div className="flex justify-start h-screen flex-col">
+        <div
+          className="bg-green-100 border-t border-b border-green-600 text-blue-700 px-4 py-3"
+          role="alert"
+        >
+          <p className="font-bold">
+            This is readme.md file of GitHub {repository} repository from {username} user
+          </p>
+          <p className="text-sm">If you see nothing - this repository have no readme.md</p>
         </div>
-        <div className="bg-yellow-200 text-black font-bold rounded-lg border shadow-lg p-10">
+        <div className="bg-yellow-200 text-black textAlign:responsive font-bold rounded-lg border shadow-lg p-10 m-10">
           <ReactMarkdown source={readme} />
         </div>
       </div>

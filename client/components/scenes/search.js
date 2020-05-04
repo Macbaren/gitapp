@@ -3,11 +3,13 @@ import { useDispatch } from 'react-redux'
 import { history } from '../../redux'
 import { getRepos } from '../../redux/reducers/repositories'
 
-
 const Search = () => {
   const dispatch = useDispatch()
   const [repository, setRepository] = useState('')
   const navigateToTheRepo = () => {
+    if (repository.length === 0) {
+      alert("Please, enter user's name")
+    }
     dispatch(getRepos(repository))
     history.push(`/${repository}`)
   }
@@ -23,7 +25,11 @@ const Search = () => {
             value={repository}
             onChange={(e) => setRepository(e.target.value)}
           />
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 ml-2 rounded focus:outline-none focus:shadow-outline" type="button" onClick={navigateToTheRepo}>
+          <button
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 ml-2 rounded focus:outline-none focus:shadow-outline"
+            type="button"
+            onClick={navigateToTheRepo}
+          >
             Search
           </button>
         </div>
